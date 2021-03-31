@@ -1,13 +1,37 @@
 import * as React from "react";
-import { View, Text, ImageBackground , StyleSheet} from "react-native";
-// import SoundPlayer from "react-native-sound-player";
+import { View, Text, ImageBackground, StyleSheet, Button} from "react-native";
+import {Audio} from "expo-av";
 
 
-const Card = ({ card }) => (
-  <View style={styles.card}>
-    <Text style={{color: "white", fontSize: 40}}>{card.name}</Text>
-  </View>
-)
+export default function Card({card}) {
+const [sound, setSound] = React.useState();
+
+console.log(card)
+async function playSound({mp3}) {
+  const {sound} = await Audio.Sound.createAsync(
+    mp3()
+  )
+  setSound(sound);
+
+  console.log('Playing Sound');
+    await sound.playAsync(); }
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync(); }
+      : undefined;
+  }, [sound]);
+
+  return (
+    <View style={styles.card}>
+      <Text style={{color: "white", fontSize: 40}}>{card.name}</Text>
+      <Button title="Play Song" onPress={() => {playSound(card)}} />
+    </View>
+  )
+}
+
 
 const styles = StyleSheet.create({
   card: {
@@ -24,5 +48,3 @@ const styles = StyleSheet.create({
     color: "black"
   }
 })
-
-export default Card;

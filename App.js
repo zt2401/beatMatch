@@ -16,13 +16,48 @@ export default function App() {
         }}
       >
         <ImageBackground source={require("./beatmatchCover.png")} style={styles.bg}>
-            <Text style={{fontSize: 45, color: '#fff', alignItems: "center"}}>
+        {/* <Button title="Likes"></Button> */}
+            <Text style={{fontSize: 45, color: '#fff', alignItems: "center", marginTop: "10%", marginLeft: "24%"}}>
               Beat Match
             </Text>
         <Swiper backgroundColor='#ffffff00'
         cards={exampleBeatData}
         cardIndex={index}
         renderCard={ card => <Card card={card}/> }
+        disableTopSwipe
+        disableBottomSwipe
+        overlayLabels={{
+          left: {
+            title: 'NAH',
+            style: {
+              label: {
+                backgroundColor: "red",
+                color: 'white',
+                fontSize: 24
+              },
+              wrapper: {
+                flexDirection: 'column',
+                alignItems: 'flex-end',
+                justifyContent: 'flex-start'
+              }
+            }
+          },
+          right: {
+            title: 'LIKE',
+            style: {
+              label: {
+                backgroundColor: "blue",
+                color: 'white',
+                fontSize: 24
+              },
+              wrapper: {
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                justifyContent: 'flex-start'
+              }
+            }
+          }
+        }}
         />
         </ImageBackground>
       </View>
