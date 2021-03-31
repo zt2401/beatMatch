@@ -1,6 +1,8 @@
 import * as React from "react";
 import { View, Text, ImageBackground , StyleSheet} from "react-native";
 
+
+
 const Card = ({ card }) => (
   <View style={styles.card}>
     <Text style={{color: "white", fontSize: 40}}>{card.name}</Text>
