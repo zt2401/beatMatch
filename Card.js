@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Text, ImageBackground , StyleSheet} from "react-native";
-
+import SoundPlayer from "react-native-sound-player";
 
 
 const Card = ({ card }) => (

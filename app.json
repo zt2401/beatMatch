@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "beatmatch",
+    "slug": "beatmatch",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "android": {
+      "package": "android.host.expo"
+    },
+    "ios": {
+      "bundleIdentifier": "ios.host.expo"
+    }
+  }
+}
